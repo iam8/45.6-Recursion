@@ -1,7 +1,11 @@
 
-/** product: calculate the product of an array of numbers. */
+/** product: calculate the product of an array of numbers. Throw error if array is empty. */
 function product(nums) {
+    if (!nums.length) throw new Error("Cannot compute product - array is empty!");
 
+    // Base case: array has one value
+
+    // Recursive case
 }
 
 
@@ -31,7 +35,7 @@ function findIndex(arr, val) {
 
 /** revString: return a copy of a string, but in reverse. */
 function revString(str) {
-
+    // Base case: the reverse of a length 0 or length 1 string is itself
 }
 
 
@@ -44,7 +48,7 @@ function gatherStrings(obj) {
 /** binarySearch: given a sorted array of numbers, and a value,
  * return the index of that value (or -1 if val is not present). */
 function binarySearch(arr, val) {
-
+    // Remember to divide and conquer for O(log n)
 }
 
 
