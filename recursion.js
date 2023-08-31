@@ -61,6 +61,15 @@ function isPalindrome(str) {
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 function findIndex(arr, val) {
 
+    // Base case: array is empty
+    if (!arr.length) return -1;
+
+    if (arr[0] === val) return 0;
+
+    const result = findIndex(arr.slice(1), val);
+
+    // Return -1 if recursion result is -1, or 1 + result otherwise
+    return (result === -1) ? -1 : 1 + result;
 }
 
 
