@@ -42,7 +42,19 @@ function everyOther(str) {
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
 function isPalindrome(str) {
+    const len = str.length;
 
+    // Base case: string has 1 or 0 characters (this is a valid palindrome)
+    if (len <= 1) return true;
+
+    // Compare first and last chars of str
+    const first = str[0].toLowerCase();
+    const last = str[len - 1].toLowerCase();
+
+    if (first !== last) return false;
+
+    // Recurse if all is good so far (chars match)
+    return isPalindrome(str.slice(1, len - 1));
 }
 
 
