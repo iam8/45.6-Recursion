@@ -123,12 +123,11 @@ function binarySearch(arr, val) {
     if (val < midVal) {
         const leftArr = arr.slice(0, midIdx);
         return binarySearch(leftArr, val);
-    } else {
+    } else if (val > midVal) {
         const rightArr = arr.slice(midIdx);
         const result = binarySearch(rightArr, val);
         return (result === -1) ? -1 : midIdx + result;
     }
-
 }
 
 
