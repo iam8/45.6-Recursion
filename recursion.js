@@ -106,7 +106,29 @@ function gatherStrings(obj) {
 /** binarySearch: given a sorted array of numbers, and a value,
  * return the index of that value (or -1 if val is not present). */
 function binarySearch(arr, val) {
-    // Remember to divide and conquer for O(log n)
+    // Base case: arr is empty
+    if (!arr.length) return -1;
+
+    // Base case: array has length 1
+    if (arr.length === 1) {
+        return (arr[0] === val) ? 0 : -1;
+    }
+
+    // Choose middle index and compare to value
+    const midIdx = Math.floor(arr.length / 2);
+    const midVal = arr[midIdx];
+    if (midVal === val) return midIdx;
+
+    // Choose side to recurse on
+    if (val < midVal) {
+        const leftArr = arr.slice(0, midIdx);
+        return binarySearch(leftArr, val);
+    } else {
+        const rightArr = arr.slice(midIdx);
+        const result = binarySearch(rightArr, val);
+        return (result === -1) ? -1 : midIdx + result;
+    }
+
 }
 
 
