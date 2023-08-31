@@ -30,7 +30,13 @@ function longest(words) {
 
 /** everyOther: return a string with every other letter. */
 function everyOther(str) {
+    if (!str.length) throw new Error("Cannot create result - given string is empty!");
 
+    // Base case: string has 1 or 2 characters
+    if (str.length <= 2) return str[0];
+
+    // Recursive case
+    return str[0] + everyOther(str.slice(2));
 }
 
 
