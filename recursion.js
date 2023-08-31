@@ -86,7 +86,20 @@ function revString(str) {
 
 /** gatherStrings: given an object, return an array of all of the string values. */
 function gatherStrings(obj) {
+    const values = Object.values(obj);
+    if (!values.length) return [];
 
+    // Recurse only when a nested object is encountered
+    const allStrings = [];
+    for (let val of values) {
+        if (typeof val === "string") {
+            allStrings.push(val);
+        } else if (typeof val === "object") {
+            allStrings.push(...gatherStrings(val));
+        }
+    }
+
+    return allStrings;
 }
 
 
