@@ -114,18 +114,19 @@ function binarySearch(arr, val) {
         return (arr[0] === val) ? 0 : -1;
     }
 
-    // Choose middle index and compare to value
+    // Choose middle index
     const midIdx = Math.floor(arr.length / 2);
     const midVal = arr[midIdx];
-    if (midVal === val) return midIdx;
 
-    // Choose side to recurse on
-    if (val < midVal) {
+    // Compare middle value to val
+    if (midVal === val) {
+        return midIdx;
+    } else if (val < midVal) {
         const leftArr = arr.slice(0, midIdx);
-        return binarySearch(leftArr, val);
-    } else if (val > midVal) {
+        return binarySearch(leftArr, val); // Recurse on left
+    } else {
         const rightArr = arr.slice(midIdx);
-        const result = binarySearch(rightArr, val);
+        const result = binarySearch(rightArr, val); // Recurse on right
         return (result === -1) ? -1 : midIdx + result;
     }
 }
