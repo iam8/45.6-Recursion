@@ -64,6 +64,7 @@ function findIndex(arr, val) {
     // Base case: array is empty
     if (!arr.length) return -1;
 
+    // Base case: first element equals the sought value
     if (arr[0] === val) return 0;
 
     const result = findIndex(arr.slice(1), val);
@@ -76,6 +77,10 @@ function findIndex(arr, val) {
 /** revString: return a copy of a string, but in reverse. */
 function revString(str) {
     // Base case: the reverse of a length 0 or length 1 string is itself
+    if (str.length <= 1) return str;
+
+    // Recursive case
+    return revString(str.slice(1)) + str[0];
 }
 
 
